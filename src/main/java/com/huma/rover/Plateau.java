@@ -9,8 +9,8 @@ public class Plateau {
         this.maxY = maxY;
     }
 
-    public String getPlateauSize() {
-        return maxX + " " + maxY;
+    public int getMaxX() {
+        return maxX;
     }
 
     public int getMaxY() {
