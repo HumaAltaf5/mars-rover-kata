@@ -1,5 +1,6 @@
 package com.huma.rover;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
 
@@ -10,13 +11,21 @@ import static com.huma.rover.Direction.*;
 import static org.testng.Assert.assertEquals;
 
 public class RoverTest {
-    @Test
+    private Controller controller;
 
+    @Before
+    public void setUp() {
+        controller = new Controller();
+        controller.setPlateauSize(10,10);
+    }
+
+
+    @Test
     public void TestToGetPlateauSize() {
         //Arrange
-       Plateau plateau  = new Plateau();
-       String expectedX = "10";
-       String expectedY = "10";
+        Plateau plateau  = new Plateau();
+        String expectedX = "10";
+        String expectedY = "10";
 
         // Act and Assert
         plateau.setPlateauSize(10,10);
@@ -41,7 +50,6 @@ public class RoverTest {
     public void TestToRotateLeft() {
         //Arrange
         String expected = "1 2 N";
-        Controller controller = new Controller();
 
         //Act
         controller.getPosition(1, 2, "S");
@@ -55,7 +63,6 @@ public class RoverTest {
     public void TestToRotateLeftMultipleTimes() {
         //Arrange
         String expected = "1 2 W";
-        Controller controller = new Controller();
 
         //Act
         controller.getPosition(1, 2, "S");
@@ -69,7 +76,6 @@ public class RoverTest {
         public void TestToRotateRight() {
         //Arrange
         String expected = "1 2 N";
-        Controller controller = new Controller();
 
         //Act
         controller.getPosition(1, 2, "W");
@@ -81,18 +87,16 @@ public class RoverTest {
     @Test
         public void TestToMoveNorthOnce() {
         String input2 = "M";
-        Controller controller = new Controller();
-        controller.getPosition(3, 4, "N");
         String expected = "3 5 N";
+        controller.getPosition(3, 4, "N");
         assertEquals(controller.executeCommands(input2),expected);
     }
 
     @Test
     public void TestToMoveNorthMultipleTimes() {
         String input2 = "MMMM";
-        Controller controller = new Controller();
-        controller.getPosition(3, 2, "N");
         String expected = "3 6 N";
+        controller.getPosition(3, 2, "N");
         String actual = controller.executeCommands(input2);
         assertEquals(actual,expected);
 
@@ -101,9 +105,8 @@ public class RoverTest {
     @Test
     public void TestToMoveSouthMultipleTimes() {
         String input2 = "MMM";
-        Controller controller = new Controller();
-        controller.getPosition(3, 6, "S");
         String expected = "3 3 S";
+        controller.getPosition(3, 6, "S");
         String actual = controller.executeCommands(input2);
         assertEquals(actual,expected);
 
@@ -112,9 +115,8 @@ public class RoverTest {
     @Test
     public void TestToMoveEastMultipleTimes() {
         String input2 = "MMM";
-        Controller controller = new Controller();
-        controller.getPosition(2, 5, "E");
         String expected = "5 5 E";
+        controller.getPosition(2, 5, "E");
         String actual = controller.executeCommands(input2);
         assertEquals(actual,expected);
     }
@@ -122,9 +124,8 @@ public class RoverTest {
     @Test
     public void TestToMoveWestMultipleTimes() {
         String input2 = "MM";
-        Controller controller = new Controller();
-        controller.getPosition(7, 2, "W");
         String expected = "5 2 W";
+        controller.getPosition(7, 2, "W");
         String actual = controller.executeCommands(input2);
         assertEquals(actual,expected);
     }
@@ -132,9 +133,8 @@ public class RoverTest {
     @Test
     public void TestToMoveLeftRightForward() {
         String input2 = "LRM";
-        Controller controller = new Controller();
-        controller.getPosition(2, 2, "N");
         String expected = "2 3 N";
+        controller.getPosition(2, 2, "N");
         String actual = controller.executeCommands(input2);
         assertEquals(actual,expected);
     }
@@ -142,9 +142,8 @@ public class RoverTest {
     @Test
     public void TestToMoveWhenSouthLimitReached() {
         String input2 = "MMMM";
-        Controller controller = new Controller();
-        controller.getPosition(2, 3, "S");
         String expected = "2 0 S";
+        controller.getPosition(2, 3, "S");
         String actual = controller.executeCommands(input2);
         assertEquals(actual,expected);
     }
@@ -152,9 +151,17 @@ public class RoverTest {
     @Test
     public void TestToMoveWhenWestLimitReached() {
         String input2 = "MMM";
-        Controller controller = new Controller();
-        controller.getPosition(2, 4, "W");
         String expected = "0 4 W";
+        controller.getPosition(2, 4, "W");
+        String actual = controller.executeCommands(input2);
+        assertEquals(actual,expected);
+    }
+
+    @Test
+    public void TestToMoveWhenNorthLimitReached() {
+        String input2 = "MMM";
+        controller.getPosition(2, 8, "N");
+        String expected = "2 10 N";
         String actual = controller.executeCommands(input2);
         assertEquals(actual,expected);
     }
