@@ -165,4 +165,15 @@ public class RoverTest {
         String actual = controller.executeCommands(input2);
         assertEquals(actual, expected);
     }
+
+    @Test
+    public void TestToCheckIfObstacleEncountered() {
+        String input2 = "MM";
+        Plateau plateau = new Plateau();
+        controller.getPosition(2, 7, "N");
+        controller.setObstacle(2, 9, "N");
+        String expected = "2 8 N";
+        String actual = controller.executeCommands(input2);
+        assertEquals(actual, expected);
+    }
 }

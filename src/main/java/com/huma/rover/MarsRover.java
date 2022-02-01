@@ -41,7 +41,10 @@ public class MarsRover implements Rover {
         int y = coordinate.getY();
 
         if (direction.getDirection().equals("N")) {
-            y = (y < plateau.getMaxY()) ? y + 1 : y;
+            y = (y < plateau.getMaxY() ) ? y + 1 : y;
+            if (plateau.getObstacleX() == x && plateau.getObstacleY() == y) {
+                y = y - 1;
+            }
         } else if (direction.getDirection().equals("S")) {
             y = (y > 0) ? y - 1 : y;
         } else if (direction.getDirection().equals("E")) {

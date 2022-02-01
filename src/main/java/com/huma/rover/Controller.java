@@ -7,14 +7,16 @@ public class Controller {
     Direction direction = North;
     Coordinate coordinate = new Coordinate();
     Plateau plateau  = new Plateau();
-    MarsRover rover = new MarsRover(direction,coordinate,plateau);
+    MarsRover rover = new MarsRover(direction, coordinate, plateau);
 
 
     public void setPlateauSize(int x, int y) {
         plateau.setPlateauSize(x, y );
     }
 
-
+    public void setObstacle(int x, int y, String cardinalVal) {
+        plateau.setObstacle(x, y, cardinalVal);
+    }
 
     public void getPosition(int x, int y, String cardinal) {
         coordinate.setX(x);
@@ -32,6 +34,7 @@ public class Controller {
                 rover.move();
             }
         }
+
         return coordinate.getX() + " " + coordinate.getY() + " " + direction.getDirection();
     }
 
