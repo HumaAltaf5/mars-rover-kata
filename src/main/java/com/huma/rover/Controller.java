@@ -1,30 +1,15 @@
 package com.huma.rover;
 
-
-import static com.huma.rover.Direction.North;
-
 public class Controller {
-    Direction direction = North;
-    Coordinate coordinate = new Coordinate();
-    Plateau plateau  = new Plateau();
-    MarsRover rover = new MarsRover(direction, coordinate, plateau);
 
 
-    public void setPlateauSize(int x, int y) {
-        plateau.setPlateauSize(x, y );
-    }
-
-    public void setObstacle(int x, int y, String cardinalVal) {
-        plateau.setObstacle(x, y, cardinalVal);
-    }
-
-    public void getPosition(int x, int y, String cardinal) {
+    public void setRoverPosition(int x, int y, String cardinal,Coordinate coordinate, Direction direction) {
         coordinate.setX(x);
         coordinate.setY(y);
         direction.setDirection(cardinal);
     }
 
-    public String executeCommands(String command) {
+    public String executeCommands(String command, Rover rover,Coordinate coordinate, Direction direction ) {
         for (char c : command.toCharArray()) {
             if (c == 'L') {
                 rover.rotateLeft();
@@ -34,10 +19,6 @@ public class Controller {
                 rover.move();
             }
         }
-
         return coordinate.getX() + " " + coordinate.getY() + " " + direction.getDirection();
     }
-
-
-
 }

@@ -11,7 +11,6 @@ public class MarsRover implements Rover {
         this.plateau = plateau;
     }
 
-
     public void rotateLeft() {
         if(direction.getDirection().equals("N")) {
             direction.setDirection("W");
@@ -39,18 +38,14 @@ public class MarsRover implements Rover {
     public void move() {
         int x = coordinate.getX();
         int y = coordinate.getY();
-
         if (direction.getDirection().equals("N")) {
-            y = (y < plateau.getMaxY() ) ? y + 1 : y;
-            if (plateau.getObstacleX() == x && plateau.getObstacleY() == y) {
-                y = y - 1;
-            }
+            y = (y < plateau.getMaxY() && (!plateau.getObstacles().contains(x + " " + (y+1)))) ? y + 1 : y;
         } else if (direction.getDirection().equals("S")) {
-            y = (y > 0) ? y - 1 : y;
+            y = (y > 0 && (!plateau.getObstacles().contains(x + " " + (y-1)))) ? y - 1 : y;
         } else if (direction.getDirection().equals("E")) {
-            x = (x < plateau.getMaxX()) ? x + 1 : x;
+            x = (x < plateau.getMaxX() && (!plateau.getObstacles().contains((x + 1) + " " + y))) ? x + 1 : x;
         } else if (direction.getDirection().equals("W")) {
-            x = (x > 0) ? x - 1 : x;
+            x = (x > 0 && (!plateau.getObstacles().contains((x - 1) + " " + y))) ? x - 1 : x;
         }
         coordinate.setX(x);
         coordinate.setY(y);

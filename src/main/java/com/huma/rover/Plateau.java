@@ -1,13 +1,16 @@
 package com.huma.rover;
 
+import java.util.ArrayList;
+
 public class Plateau {
     private int maxX;
     private int maxY;
     private int obstacleX;
     private int obstacleY;
     private String cardinal;
+    private ArrayList obstacles;
 
-    public void setPlateauSize(int maxX, int maxY) {
+    public Plateau(int maxX, int maxY) {
         this.maxX = maxX;
         this.maxY = maxY;
     }
@@ -20,21 +23,11 @@ public class Plateau {
         return maxY;
     }
 
-    public void setObstacle(int x, int y, String cardinalVal) {
-        this.obstacleX = x;
-        this.obstacleY = y;
-        this.cardinal = cardinalVal;
+    public void setObstacle(ArrayList<String> obstacles) {
+        this.obstacles = obstacles;
     }
 
-    public int getObstacleX() {
-        return obstacleX;
-    }
-
-    public int getObstacleY() {
-        return obstacleY;
-    }
-
-    public String getCardinal() {
-        return cardinal;
+    public ArrayList getObstacles() {
+        return obstacles;
     }
 }
