@@ -1,4 +1,9 @@
 package com.huma.rover;
 
-public class Rover {
+public interface Rover {
+
+    public void move();
+    public void rotateRight();
+    public void rotateLeft();
+
 }

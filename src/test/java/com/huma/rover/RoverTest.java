@@ -16,21 +16,21 @@ public class RoverTest {
     @Before
     public void setUp() {
         controller = new Controller();
-        controller.setPlateauSize(10,10);
+        controller.setPlateauSize(10, 10);
     }
 
 
     @Test
     public void TestToGetPlateauSize() {
         //Arrange
-        Plateau plateau  = new Plateau();
+        Plateau plateau = new Plateau();
         String expectedX = "10";
         String expectedY = "10";
 
         // Act and Assert
-        plateau.setPlateauSize(10,10);
-        assertEquals(String.valueOf(plateau.getMaxX()),expectedX);
-        assertEquals(String.valueOf(plateau.getMaxY()),expectedY);
+        plateau.setPlateauSize(10, 10);
+        assertEquals(String.valueOf(plateau.getMaxX()), expectedX);
+        assertEquals(String.valueOf(plateau.getMaxY()), expectedY);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class RoverTest {
         String expected = "1 2";
 
         //Act and Assert
-        Coordinate coordinate =  new Coordinate();
+        Coordinate coordinate = new Coordinate();
         coordinate.setX(Character.getNumericValue(input1.charAt(0)));
         coordinate.setY(Character.getNumericValue(input1.charAt(2)));
         assertEquals(coordinate.getX() + " " + coordinate.getY(), expected);
@@ -56,7 +56,7 @@ public class RoverTest {
         String actual = controller.executeCommands("LL");
 
         //Assert
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -69,11 +69,11 @@ public class RoverTest {
         String actual = controller.executeCommands("LLL");
 
         //Assert
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
-        public void TestToRotateRight() {
+    public void TestToRotateRight() {
         //Arrange
         String expected = "1 2 N";
 
@@ -81,15 +81,15 @@ public class RoverTest {
         controller.getPosition(1, 2, "W");
 
         //Assert
-        assertEquals(controller.executeCommands("R"),expected);
+        assertEquals(controller.executeCommands("R"), expected);
     }
 
     @Test
-        public void TestToMoveNorthOnce() {
+    public void TestToMoveNorthOnce() {
         String input2 = "M";
         String expected = "3 5 N";
         controller.getPosition(3, 4, "N");
-        assertEquals(controller.executeCommands(input2),expected);
+        assertEquals(controller.executeCommands(input2), expected);
     }
 
     @Test
@@ -98,7 +98,7 @@ public class RoverTest {
         String expected = "3 6 N";
         controller.getPosition(3, 2, "N");
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
 
     }
 
@@ -108,7 +108,7 @@ public class RoverTest {
         String expected = "3 3 S";
         controller.getPosition(3, 6, "S");
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
 
     }
 
@@ -118,7 +118,7 @@ public class RoverTest {
         String expected = "5 5 E";
         controller.getPosition(2, 5, "E");
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -127,7 +127,7 @@ public class RoverTest {
         String expected = "5 2 W";
         controller.getPosition(7, 2, "W");
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -136,7 +136,7 @@ public class RoverTest {
         String expected = "2 3 N";
         controller.getPosition(2, 2, "N");
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -145,7 +145,7 @@ public class RoverTest {
         String expected = "2 0 S";
         controller.getPosition(2, 3, "S");
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -154,7 +154,7 @@ public class RoverTest {
         String expected = "0 4 W";
         controller.getPosition(2, 4, "W");
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
 
     @Test
@@ -163,7 +163,6 @@ public class RoverTest {
         controller.getPosition(2, 8, "N");
         String expected = "2 10 N";
         String actual = controller.executeCommands(input2);
-        assertEquals(actual,expected);
+        assertEquals(actual, expected);
     }
-
 }
