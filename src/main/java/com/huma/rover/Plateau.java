@@ -29,10 +29,6 @@ public class Plateau {
         return maxY;
     }
 
-    //public void setObstacle(ArrayList<String> obstacles) {
-   //     this.obstacles = obstacles;
-   // }
-
     public ArrayList getObstacles() {
         return obstacles;
     }

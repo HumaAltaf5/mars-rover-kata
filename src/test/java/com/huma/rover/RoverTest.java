@@ -2,7 +2,6 @@ package com.huma.rover;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runners.Parameterized;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,6 @@ public class RoverTest {
         obstacles.add("6 8");
         obstacles.add("5 7");
     }
-
 
     @Test
     public void TestToGetPlateauSize() {
@@ -247,5 +245,23 @@ public class RoverTest {
         String actual = controller.executeCommands(input2, rover, coordinate, direction);
         assertEquals(actual, expected);
     }
+
+    @Test
+    public void TestToMoveMultipleRoversInSequence() {
+        Rover roverOne = new MarsRover(direction, coordinate, plateau);
+        Rover roverTwo = new MarsRover(direction, coordinate, plateau);
+        String input1 = "ML";
+        String input2 = "MMR";
+        String expected1 = "3 5 E";
+        String expected2 = "2 6 E";
+        controller.setRoverPosition(3, 6, "S", coordinate, direction);
+        String actual1 = controller.executeCommands(input1, roverOne, coordinate, direction);
+        controller.setRoverPosition(2, 4, "N", coordinate, direction);
+        String actual2 = controller.executeCommands(input2, roverTwo, coordinate, direction);
+        assertEquals(actual1, expected1);
+        assertEquals(actual2, expected2);
+    }
+
+
 }
 
