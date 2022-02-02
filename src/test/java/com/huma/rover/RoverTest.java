@@ -19,7 +19,7 @@ public class RoverTest {
 
     @Before
     public void setUp() {
-        direction = North;
+        direction = NORTH;
         coordinate = new Coordinate();
         plateau = new Plateau(10, 10);
         controller = new Controller();

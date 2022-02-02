@@ -1,24 +1,22 @@
 package com.huma.rover;
 
 public enum Direction {
-    North ("N"),
-    South ("S"),
-    East ("E"),
-    West ("W");
+    NORTH ("N"),
+    SOUTH ("S"),
+    EAST ("E"),
+    WEST ("W");
 
-    private String cardinalValue;
+    private String direction;
 
     Direction(String direction) {
-        this.cardinalValue = direction;
+        this.direction = direction;
     }
 
     public String getDirection() {
-        return cardinalValue;
+        return direction;
     }
 
-     public void setDirection(String cardinal) {
-        this.cardinalValue = cardinal;
+     public void setDirection(String direction) {
+        this.direction = direction;
     }
-
-
 }
