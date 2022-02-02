@@ -39,13 +39,30 @@ public class MarsRover implements Rover {
         int x = coordinate.getX();
         int y = coordinate.getY();
         if (direction.getDirection().equals("N")) {
-            y = (y < plateau.getMaxY() && (!plateau.getObstacles().contains(x + " " + (y+1)))) ? y + 1 : y;
+            if(plateau.getObstacles() != null) {
+                y = (y < plateau.getMaxY() && (!plateau.getObstacles().contains(x + " " + (y + 1)))) ? y + 1 : y;
+            } else {
+                y = (y < plateau.getMaxY()) ? y + 1 : y;
+            }
         } else if (direction.getDirection().equals("S")) {
-            y = (y > 0 && (!plateau.getObstacles().contains(x + " " + (y-1)))) ? y - 1 : y;
+            if(plateau.getObstacles() != null) {
+                y = (y > 0 && (!plateau.getObstacles().contains(x + " " + (y - 1)))) ? y - 1 : y;
+            } else {
+                y = (y > 0) ? y - 1 : y;
+            }
         } else if (direction.getDirection().equals("E")) {
-            x = (x < plateau.getMaxX() && (!plateau.getObstacles().contains((x + 1) + " " + y))) ? x + 1 : x;
+            if(plateau.getObstacles() != null) {
+                x = (x < plateau.getMaxX() && (!plateau.getObstacles().contains((x + 1) + " " + y))) ? x + 1 : x;
+            } else {
+                x = (x < plateau.getMaxX()) ? x + 1 : x;
+            }
+
         } else if (direction.getDirection().equals("W")) {
-            x = (x > 0 && (!plateau.getObstacles().contains((x - 1) + " " + y))) ? x - 1 : x;
+            if(plateau.getObstacles() != null) {
+                x = (x > 0 && (!plateau.getObstacles().contains((x - 1) + " " + y))) ? x - 1 : x;
+            } else {
+                x = (x > 0) ? x - 1 : x;
+            }
         }
         coordinate.setX(x);
         coordinate.setY(y);

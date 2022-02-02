@@ -15,6 +15,12 @@ public class Plateau {
         this.maxY = maxY;
     }
 
+    public Plateau(int maxX, int maxY, ArrayList<String> obstacles) {
+        this.maxX = maxX;
+        this.maxY = maxY;
+        this.obstacles = obstacles;
+    }
+
     public int getMaxX() {
         return maxX;
     }
@@ -23,9 +29,9 @@ public class Plateau {
         return maxY;
     }
 
-    public void setObstacle(ArrayList<String> obstacles) {
-        this.obstacles = obstacles;
-    }
+    //public void setObstacle(ArrayList<String> obstacles) {
+   //     this.obstacles = obstacles;
+   // }
 
     public ArrayList getObstacles() {
         return obstacles;
