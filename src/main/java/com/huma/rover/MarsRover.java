@@ -1,6 +1,6 @@
 package com.huma.rover;
 
-public class MarsRover implements Rover {
+public class MarsRover implements Vehicle {
     private Direction direction;
     private Coordinate coordinate;
     private Plateau plateau;

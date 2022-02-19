@@ -9,7 +9,7 @@ public class Controller {
         direction.setDirection(cardinal);
     }
 
-    public String executeCommands(String command, Rover rover,Coordinate coordinate, Direction direction ) {
+    public String executeCommands(String command, Vehicle rover,Coordinate coordinate, Direction direction ) {
         for (char c : command.toCharArray()) {
             if (c == 'L') {
                 rover.rotateLeft();

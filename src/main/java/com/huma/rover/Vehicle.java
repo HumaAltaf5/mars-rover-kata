@@ -1,6 +1,6 @@
 package com.huma.rover;
 
-interface Rover {
+public interface Vehicle {
     void move();
     void rotateRight();
     void rotateLeft();

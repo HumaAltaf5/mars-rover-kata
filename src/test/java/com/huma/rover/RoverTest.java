@@ -13,7 +13,7 @@ public class RoverTest {
     private Coordinate coordinate;
     private Plateau plateau;
     private Controller controller;
-    private Rover rover;
+    private Vehicle rover;
     private ArrayList<String> obstacles;
 
     @Before
@@ -182,7 +182,7 @@ public class RoverTest {
     @Test
     public void TestToCheckWhenObstacleEncounteredAtWest() {
         Plateau obstaclePlateau = new Plateau(10,10, obstacles);
-        Rover rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
+        Vehicle rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
         String input2 = "M";
         controller.setRoverPosition(2, 8, "W", coordinate, direction);
         String expected = "2 8 W";
@@ -193,7 +193,7 @@ public class RoverTest {
     @Test
     public void TestToCheckWhenObstacleEncounteredAtNorth() {
         Plateau obstaclePlateau = new Plateau(10,10, obstacles);
-        Rover rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
+        Vehicle rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
         String input2 = "MM";
         controller.setRoverPosition(7, 7, "N", coordinate, direction);
         String expected = "7 8 N";
@@ -204,7 +204,7 @@ public class RoverTest {
     @Test
     public void TestToCheckWhenObstacleEncounteredAtSouth() {
         Plateau obstaclePlateau = new Plateau(10,10, obstacles);
-        Rover rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
+        Vehicle rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
         String input2 = "MM";
         controller.setRoverPosition(6, 9, "S", coordinate, direction);
         String expected = "6 9 S";
@@ -215,7 +215,7 @@ public class RoverTest {
     @Test
     public void TestToCheckWhenObstacleEncounteredAtEast() {
         Plateau obstaclePlateau = new Plateau(10,10, obstacles);
-        Rover rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
+        Vehicle rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
         String input2 = "MMM";
         controller.setRoverPosition(3, 7, "E", coordinate, direction);
         String expected = "4 7 E";
@@ -226,7 +226,7 @@ public class RoverTest {
     @Test
     public void TestToCheckIfObstacleArrayisNull() {
         Plateau obstaclePlateau = new Plateau(10,10, null);
-        Rover rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
+       Vehicle rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
         String input2 = "MMM";
         controller.setRoverPosition(3, 7, "E", coordinate, direction);
         String expected = "6 7 E";
@@ -238,7 +238,7 @@ public class RoverTest {
     public void TestToCheckIfObstacleArrayisEmpty() {
         ArrayList<String> emptyArray = new ArrayList<>();
         Plateau obstaclePlateau = new Plateau(10,10, emptyArray);
-        Rover rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
+        Vehicle rover2 = new MarsRover(direction, coordinate, obstaclePlateau);
         String input2 = "MMM";
         controller.setRoverPosition(0, 7, "E", coordinate, direction);
         String expected = "3 7 E";
@@ -248,8 +248,8 @@ public class RoverTest {
 
     @Test
     public void TestToMoveMultipleRoversInSequence() {
-        Rover roverOne = new MarsRover(direction, coordinate, plateau);
-        Rover roverTwo = new MarsRover(direction, coordinate, plateau);
+        Vehicle roverOne = new MarsRover(direction, coordinate, plateau);
+        Vehicle roverTwo = new MarsRover(direction, coordinate, plateau);
         String input1 = "ML";
         String input2 = "MMR";
         String expected1 = "3 5 E";
