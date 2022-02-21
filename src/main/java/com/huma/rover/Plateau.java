@@ -1,5 +1,6 @@
 package com.huma.rover;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Plateau {
@@ -11,8 +12,16 @@ public class Plateau {
     private ArrayList obstacles;
 
     public Plateau(int maxX, int maxY) {
-        this.maxX = maxX;
-        this.maxY = maxY;
+        try {
+            if (maxX < 0 || maxY < 0) {
+                throw new Exception("Plateau size cannot be negative");
+            } else {
+                this.maxX = maxX;
+                this.maxY = maxY;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public Plateau(int maxX, int maxY, ArrayList<String> obstacles) {
