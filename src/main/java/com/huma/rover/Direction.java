@@ -1,10 +1,10 @@
 package com.huma.rover;
 
 public enum Direction {
-    NORTH ("N"),
-    SOUTH ("S"),
-    EAST ("E"),
-    WEST ("W");
+    N ("N"),
+    S ("S"),
+    E ("E"),
+    W ("W");
 
     private String direction;
 
@@ -13,7 +13,7 @@ public enum Direction {
     }
 
     public String getDirection() {
-        return direction;
+        return this.direction;
     }
 
      public void setDirection(String direction) {

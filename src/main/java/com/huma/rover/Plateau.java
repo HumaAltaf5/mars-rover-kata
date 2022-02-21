@@ -25,9 +25,17 @@ public class Plateau {
     }
 
     public Plateau(int maxX, int maxY, ArrayList<String> obstacles) {
-        this.maxX = maxX;
-        this.maxY = maxY;
-        this.obstacles = obstacles;
+        try {
+            if (maxX < 0 || maxY < 0) {
+                throw new Exception("Plateau size cannot be negative");
+            } else {
+                this.maxX = maxX;
+                this.maxY = maxY;
+                this.obstacles = obstacles;
+            }
+        } catch (Exception e) {
+                System.out.println(e);
+        }
     }
 
     public int getMaxX() {
