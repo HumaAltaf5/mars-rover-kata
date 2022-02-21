@@ -36,4 +36,13 @@ South, West, East respectively.
 For each Rover, the output represents its final position (final coordinates and where it is facing).\
 - eg. 3 6 W means rover is at (3,6) facing West.
 
+###Instructions to run the program:
+1.Run src/main/java/com/huma/rover/Main.java\
+2.Follow the instructions to:
+- Input x and y coordinates for Plateau size eg. 10,10.
+- Input the x and y coordinates for Rover's current position eg. 5,8
+- Input the direction Rover is facing eg. N
+- Input the commands to Move or Rotate the Rover Right or Left eg. RLM
+
+
 

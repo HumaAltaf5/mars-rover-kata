@@ -294,26 +294,5 @@ public class RoverTest {
         assertEquals(actual1, expected1);
         assertEquals(actual2, expected2);
     }
-
-    @Test
-    public void TestRoverFromUserInput() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter x coordinate for Plateau size");
-        int maxX = scan.nextInt();
-        System.out.println("Enter y coordinate for Plateau size");
-        int maxY = scan.nextInt();
-        Plateau plateau = new Plateau(maxX, maxY);
-        System.out.println("Enter x coordinate for Rover");
-        int x = scan.nextInt();
-        System.out.println("Enter y coordinate for Rover");
-        int y = scan.nextInt();
-        System.out.println("Enter direction for Rover eg N/S/E/W");
-        String cardinal = scan.next();
-        controller.setRoverPosition(x, y, cardinal, coordinate, direction, plateau);
-        System.out.println("Enter commands to rotate or move Rover eg, LMR");
-        String move = scan.next();
-        String finalPosition = controller.executeCommands(move, rover, coordinate, direction);
-        System.out.println("Rover current postion is " + finalPosition);
-    }
 }
 
